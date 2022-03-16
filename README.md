@@ -1,5 +1,7 @@
 # OZP Bucket Browser
 
+![](./img/icon.png)
+
 Single HTML file to browse the AWS S3 bucket storing territorial, manipulated OZPs of Hong Kong.
 
 Website: [http://ozpmerged.s3-website.ap-east-1.amazonaws.com/](http://ozpmerged.s3-website.ap-east-1.amazonaws.com/)
