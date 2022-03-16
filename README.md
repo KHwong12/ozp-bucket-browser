@@ -1,6 +1,6 @@
 # OZP Bucket Browser
 
-![](./img/icon.png)
+![](./img/icon.ico)
 
 Single HTML file to browse the AWS S3 bucket storing territorial, manipulated OZPs of Hong Kong.
 
