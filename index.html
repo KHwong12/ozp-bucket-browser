@@ -247,10 +247,8 @@
     
     <!-- Footer --> 
     <div class="footer-bucket-url">
-      <a :href="`${config.bucketUrl}?prefix=${config.rootPrefix}${pathPrefix}`">Bucket: {{ config.bucketUrl }}</a>
-    </div>
-    <div class="footer-bucket-url">
-      <p>Bucket browser template by <a href="https://github.com/qoomon/aws-s3-bucket-browser">qoomon</a></p>>
+      <p>S3 bucket: <a href="`${config.bucketUrl}?prefix=${config.rootPrefix}${pathPrefix}`">{{ config.bucketUrl }}</a></p>
+      <p>Bucket browser template by <a href="https://github.com/qoomon/aws-s3-bucket-browser">qoomon</a></p>
     </div>
   </div>
 
