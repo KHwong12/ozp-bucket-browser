@@ -34,7 +34,10 @@
       //   bucketMaskUrl: document.location.origin
       //     => ${document.location.origin}/foo/bar.txt 
       
-      defaultOrder: 'name-asc' // (name|size|dateModified)-(asc|desc)
+      defaultOrder: 'name-asc', // (name|size|dateModified)-(asc|desc)
+
+      // TODO:  automate last update
+      lastUpdate: '8 April 2022'
     }
   </script>
 
@@ -95,6 +98,8 @@
         This website will also not have any liability, obligation or responsibility or any loss, destruction or damage in respect of using, misusing, inability to use, or relying on the Data.
         Users are responsible for making their own assessment of all information concerned.
       </p>
+      <br>
+      <p><b>Last revision date:</b> {{config.lastUpdate}} </p>
     </div>
     <hr>
 
