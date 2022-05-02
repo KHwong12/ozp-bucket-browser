@@ -12,7 +12,7 @@
       favicon: 'https://raw.githubusercontent.com/KHwong12/ozp-bucket-browser/master/img/icon.ico',
       primaryColor: '#167df0',
       
-      bucketUrl: undefined,
+      bucketUrl: 'https://s3.ap-east-1.amazonaws.com/ozpmerged',
       // If bucketUrl is undefined, this script tries to determine bucket Rest API URL from this file location itself.
       //   This will only work for locations like these
       //   * https://s3.BUCKET-REGION.amazonaws.com/BUCKET-NAME/index.html
@@ -36,8 +36,11 @@
       
       defaultOrder: 'name-asc', // (name|size|dateModified)-(asc|desc)
 
-      // TODO:  automate last update
-      lastUpdate: '27 April 2022'
+      latestPlan: 'S/TSW/16 and S/YL-LFS/11',
+      latestPlanGazetteDate: '2022-04-22',
+      latestPlanGazetteSection: '9(1)(a) and 9(1)(a)',
+
+      lastUpdate: ' 2 May 2022'
     }
   </script>
 
@@ -87,7 +90,7 @@
         </li>
         <li>
           <i>by-plan</i> folder stores standalone OZP data by scheme area.
-          The latest gazetted plans added are S/TSW/16 and S/YL-LFS/11, published on 2022-04-22 under section 9(1)(a).
+          The latest gazetted plan(s) added is {{config.latestPlan}}, published on {{config.latestPlanGazetteDate}} under section {{config.latestPlanGazetteSection}} respectively.
         </li>
       </ul>
       <br>
