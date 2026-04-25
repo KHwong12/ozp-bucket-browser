@@ -6,11 +6,11 @@
 <head>
   <script>
     const config = {
-      title: 'Historical Territorial OZP Database (Beta)',
-      subtitle: 'Download merged, territorial Outline Zoning Plan data',
-      logo: 'https://raw.githubusercontent.com/KHwong12/ozp-bucket-browser/master/img/icon.png',
-      favicon: 'https://raw.githubusercontent.com/KHwong12/ozp-bucket-browser/master/img/icon.ico',
-      primaryColor: '#167df0',
+      title: 'OZP Downloader',
+      subtitle: 'Historical territorial and by-plan Outline Zoning Plan downloads',
+      logo: 'inline-indexed-grid-seal',
+      favicon: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cg fill=%22none%22 stroke=%22%232f6b47%22 stroke-width=%226%22 stroke-linejoin=%22round%22%3E%3Crect x=%2218%22 y=%2218%22 width=%2264%22 height=%2264%22 rx=%2210%22/%3E%3Cpath d=%22M39 18V82%22/%3E%3Cpath d=%22M61 18V82%22/%3E%3Cpath d=%22M18 39H82%22/%3E%3Cpath d=%22M18 61H82%22/%3E%3C/g%3E%3Crect x=%2218%22 y=%2218%22 width=%2221%22 height=%2221%22 rx=%225%22 fill=%22%232f6b47%22/%3E%3C/svg%3E',
+      primaryColor: '#2f6b47',
       
       bucketUrl: 'https://s3.ap-east-1.amazonaws.com/ozpmerged',
       // If bucketUrl is undefined, this script tries to determine bucket Rest API URL from this file location itself.
@@ -36,21 +36,21 @@
       
       defaultOrder: 'name-asc', // (name|size|dateModified)-(asc|desc)
 
-      latestPlan: 'S/SK-CWBN/8, S/K14S/28 and S/YL-NSW/12',
-      latestPlanGazetteDate: '2026-04-17',
-      latestPlanGazetteSection: '9(1)(a), 9(1)(a) and 9(1)(a)',
+      latestPlan: 'S/SK-SKT/7 and S/H5/33',
+      latestPlanGazetteDate: '2026-04-24',
+      latestPlanGazetteSection: '5 and 9(1)(a)',
 
-      lastUpdate: '19 Apr 2026'
+      lastUpdate: '25 Apr 2026'
     }
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="Historical Territorial OZP Database" />
+  <meta property="og:title" content="OZP Downloader" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/KHwong12/ozp-bucket-browser/master/img/icon.png" />
-  <meta property="og:description" content="Download merged, territorial Outline Zoning Plan data" />
+  <meta property="og:description" content="Download territorial and by-plan Outline Zoning Plan data" />
 
   <link id="favicon" rel="shortcut icon" />
   <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js" integrity="sha384-ULpZhk1pvhc/UK5ktA9kwb2guy9ovNSTyxPNHANnA35YjBQgdwI+AhLkixDvdlw4" crossorigin="anonymous"></script>
@@ -69,7 +69,16 @@
     <div class="level">
       <div class="level-left" style="display: flex;">
         <figure class="level-item image is-96x96" style="margin-right: 1.5rem;">
-          <img :src="config.logo" />
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="OZP Downloader logo" role="img">
+            <g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round">
+              <rect x="24" y="24" width="52" height="52" rx="8"></rect>
+              <path d="M41 24V76"></path>
+              <path d="M59 24V76"></path>
+              <path d="M24 41H76"></path>
+              <path d="M24 59H76"></path>
+            </g>
+            <rect x="24" y="24" width="17" height="17" rx="4" fill="currentColor"></rect>
+          </svg>
         </figure>
         <div>
           <h1 class="title">{{config.title}}</h1>
@@ -80,21 +89,27 @@
 
     <div class="container">
       <p>
-        This website stores the publicly available digital outline zoning plan (OZP) data from Town Planning Board (TPB). Data of statutory plans in force on and after mid-2019 are available. Guidelines and manuals of using this website are availble in <a href="https://khwongk12.medium.com/introducing-historical-territorial-outline-zoning-plan-ozp-database-beta-b69aaa3285c0">this blog</a>.
+        OZP Downloader provides downloadable Outline Zoning Plan (OZP) datasets sourced from the Town Planning Board (TPB). It brings together territorial merged outputs and scheme-area files in one place. The archive currently covers statutory plans in force from mid-2019 onward. A short introduction to using the site is available in <a href="https://khwongk12.medium.com/introducing-historical-territorial-outline-zoning-plan-ozp-database-beta-b69aaa3285c0">this blog post</a>.
       </p>
       <br>
       <ul>
         <li>
-          <i>territorial-merged</i> folder stores the data merged from multiple OZPs. A new set of territorial data will be published after a new plan  
-          is gazetted. Data from start of 2020 are currently available.
+          <i>territorial-merged</i> stores merged territorial datasets compiled from multiple OZPs. A new territorial snapshot is published after newly gazetted plan data are added. Territorial snapshots are currently available from the beginning of 2020 onward.
         </li>
         <li>
-          <i>by-plan</i> folder stores standalone OZP data by scheme area.
-          The latest gazetted plan(s) added is {{config.latestPlan}}, published on {{config.latestPlanGazetteDate}} under section {{config.latestPlanGazetteSection}} respectively.
+          <i>by-plan</i> stores standalone OZP datasets by scheme area.
         </li>
       </ul>
       <br>
-      <p><b>Important Note:</b> Original data provided by <a href="https://www.pland.gov.hk/pland_en/info_serv/digital_planning_data/download.htm">Town Planning Board</a>. 
+      <p>
+        This is an actively maintained public archive. Beta status is retained for the archive workflow and presentation layer.
+      </p>
+      <br>
+      <p><b>Latest OZP addition:</b> {{config.latestPlan}} </p>
+      <p><b>Gazette date and section:</b> {{config.latestPlanGazetteDate}} under section {{config.latestPlanGazetteSection}} </p>
+      <p><b>Last update:</b> {{config.lastUpdate}} </p>
+      <br>
+      <p><b>Important Note:</b> The following wording is quoted from the upstream government source. Original data provided by <a href="https://www.pland.gov.hk/pland_en/info_serv/digital_planning_data/download.htm">Town Planning Board</a>. 
         You are deemed to have agreed to be bound unconditionally by the Terms and Conditions of Use of the digital planning data. <b>IF YOU DO NOT AGREE, DO NOT USE THIS WEB PAGE.</b>
         Please read the Terms and Conditions as well as Guidelines before using the data.
       </p>
@@ -103,8 +118,6 @@
         This website will also not have any liability, obligation or responsibility or any loss, destruction or damage in respect of using, misusing, inability to use, or relying on the Data.
         Users are responsible for making their own assessment of all information concerned.
       </p>
-      <br>
-      <p><b>Last revision date:</b> {{config.lastUpdate}} </p>
     </div>
     <hr>
 
